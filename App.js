@@ -4,17 +4,15 @@ import SignInScreen from "./src/screens/SignInScreen";
 
 export default function App() {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.root}>
       <SignInScreen />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
-    backgroundColor: "#059be0",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "green",
   },
 });
