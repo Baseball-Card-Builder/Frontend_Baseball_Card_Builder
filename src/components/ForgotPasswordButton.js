@@ -13,5 +13,6 @@ export default ForgotPasswordButton;
 const styles = StyleSheet.create({
     forgotBTN: {
         height: 30,
+        marginBottom: 30,
     }
 })

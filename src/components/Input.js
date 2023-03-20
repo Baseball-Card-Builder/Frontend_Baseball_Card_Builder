@@ -7,7 +7,7 @@ const Input = ({ value, setValue, placeholder }) => {
         value={value}
         onChangeText={setValue}
         placeholder={placeholder}
-        style={styles.input}
+        style={styles.textInput}
         secureTextEntry={secureTextEntry}
       />
     </View>
@@ -19,12 +19,16 @@ export default Input;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
-    width: "100%",
-    borderColor: "#e8e8e8",
-    borderWidth: 5,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    marginVertical: 10,
+    borderRadius: 30,
+    width: "70%",
+    height: 45,
+    marginBottom: 20,
+    alignItems: "center",
   },
-  input: {},
+  textInput: {
+    height: 50,
+    flex: 1,
+    padding: 10,
+    marginLeft: 20,
+  }
 });

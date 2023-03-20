@@ -11,25 +11,28 @@ const SignInScreen = () => {
   return (
     <View style={styles.root}>
       <Image source={Logo} style={styles.logo} resizeMode="contain" />
-      <Input placeholder="Username" value={username} setValue={setUsername} />
-      <Input placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true}/>
+      <Input placeholder="Email" />
+      <Input placeholder="Password" />
       <ForgotPasswordButton />
-    </View>
+      </View>
   );
 };
 
 export default SignInScreen;
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    alignItems: "center",
-    padding: 20,
-  },
+    root: {
+        flex: 1,
+        backgroundColor: "green",
+        alignItems:"center",
+        marginTop: "30%"
+    },
   logo: {
     width: "70%",
     maxWidth: 250,
     height: 150,
+    alignItems: "center",
     backgroundColor: "green",
+    marginBottom: 20,
   },
 });
