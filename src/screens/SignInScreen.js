@@ -12,6 +12,7 @@ const SignInScreen = () => {
   return (
     <View style={styles.root}>
       <Image source={Logo} style={styles.logo} resizeMode="contain" />
+      <Text>BASEBALL CARD BUILDER</Text>
       <Input placeholder="Email" />
       <Input placeholder="Password" />
       <LoginButton />
@@ -35,6 +36,6 @@ const styles = StyleSheet.create({
     height: 150,
     alignItems: "center",
     backgroundColor: "green",
-    marginBottom: 40,
+    marginBottom: 20,
   },
 });
