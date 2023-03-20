@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "green",
         alignItems:"center",
-        marginTop: "30%"
+        marginTop: "20%"
     },
   logo: {
     width: "70%",
