@@ -1,23 +1,47 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import { useState } from "react";
 import Logo from "../../assets/images/baseball.jpg";
-import Input from "../../src/components/Input";
-import ForgotPasswordButton from "../components/ForgotPasswordButton";
-import LoginButton from "../components/LoginButton";
+import CustomInput from "../components/CustomInput";
+import CustomButton from "../components/CustomButton";
 
 const SignInScreen = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const SignInPressed = () => {
+    console.log("Signed in!");
+  };
+  const forgotPasswordPressed = () => {
+    console.log("Forgot Password Pressed!");
+  };
+  const signUpPressed = () => {
+    console.log("Signup Pressed!");
+  };
+
   return (
-    <View style={styles.root}>
-      <Image source={Logo} style={styles.logo} resizeMode="contain" />
-      <Text>BASEBALL CARD BUILDER</Text>
-      <Input placeholder="Email" />
-      <Input placeholder="Password" />
-      <LoginButton />
-      <ForgotPasswordButton />
-    </View>
+    <ScrollView>
+      <View style={styles.root}>
+        <Image source={Logo} style={styles.logo} resizeMode="contain" />
+        <Text>BASEBALL CARD BUILDER</Text>
+        <CustomInput placeholder="Email" />
+        <CustomInput placeholder="Password" />
+        <CustomButton 
+          onPress={SignInPressed} 
+          text="Login" 
+          type="PRIMARY" 
+        />
+        <CustomButton
+          onPress={forgotPasswordPressed}
+          text="Forgot Password?"
+          type="SECONDARY"
+        />
+          <CustomButton 
+          onPress={signUpPressed} 
+          text="Sign up" 
+          type="TERTIARY"
+        />
+      </View>
+    </ScrollView>
   );
 };
 
