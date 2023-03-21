@@ -1,6 +1,6 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import { useState } from "react";
-import Logo from "../../images/baseball.jpg";
+import Logo from "../../assets/images/baseball.jpg";
 import Input from "../../src/components/Input";
 import ForgotPasswordButton from "../components/ForgotPasswordButton";
 import LoginButton from "../components/LoginButton";
