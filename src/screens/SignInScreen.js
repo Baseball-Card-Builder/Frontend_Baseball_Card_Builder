@@ -50,7 +50,6 @@ export default SignInScreen;
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: "green",
     alignItems: "center",
     marginTop: "20%",
   },
@@ -59,7 +58,6 @@ const styles = StyleSheet.create({
     maxWidth: 250,
     height: 150,
     alignItems: "center",
-    backgroundColor: "green",
     marginBottom: 20,
   },
 });
