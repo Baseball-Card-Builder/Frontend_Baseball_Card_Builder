@@ -4,7 +4,7 @@ import Logo from "../../assets/images/baseball.jpg";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,7 +15,7 @@ const SignInScreen = () => {
     console.log("Forgot Password Pressed!");
   };
   const signUpPressed = () => {
-    console.log("Signup Pressed!");
+    navigation.navigate("signUp")
   };
 
   return (
