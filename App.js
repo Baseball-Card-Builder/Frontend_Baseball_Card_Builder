@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
         <NavigationContainer>
         <Stack.Navigator initialRouteName="signIn">
           <Stack.Screen name="signIn" component={SignInScreen }/>
@@ -24,6 +24,5 @@ export default function App() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: "green",
   },
 });
