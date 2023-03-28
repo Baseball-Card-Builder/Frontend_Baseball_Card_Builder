@@ -8,7 +8,7 @@ const SignInScreen = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const SignInPressed = () => {
+  const loginPressed = () => {
     console.log("Signed in!");
   };
   const forgotPasswordPressed = () => {
@@ -26,7 +26,7 @@ const SignInScreen = () => {
         <CustomInput placeholder="Email" />
         <CustomInput placeholder="Password" />
         <CustomButton 
-          onPress={SignInPressed} 
+          onPress={loginPressed} 
           text="Login" 
           type="PRIMARY" 
         />
