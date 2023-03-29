@@ -3,17 +3,17 @@ import { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
 
-const SignUpScreen = () => {
+const SignUpScreen = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
 
   const onRegisterPressed = () => {
-    console.log("Forgot Password Pressed!");
+    console.log("Register Pressed!");
   };
   const onSignInPressed = () => {
-    console.log("Sign in Pressed!");
+    navigation.navigate("signIn")
   };
 
   return (
