@@ -1,14 +1,13 @@
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { useState } from "react";
-import Logo from "../../assets/images/baseball.jpg";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
 
 const SignInScreen = ({ navigation }) => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const loginPressed = () => {
+  const signInPressed = () => {
     console.log("Signed in!");
   };
   const forgotPasswordPressed = () => {
@@ -21,13 +20,12 @@ const SignInScreen = ({ navigation }) => {
   return (
     <ScrollView>
       <View style={styles.root}>
-        <Image source={Logo} style={styles.logo} resizeMode="contain" />
         <Text>BASEBALL CARD BUILDER</Text>
-        <CustomInput placeholder="Email" />
-        <CustomInput placeholder="Password" />
+        <CustomInput placeholder="Email" value={email} onChangeText={setEmail}/>
+        <CustomInput placeholder="Password" value={password} onChangeText={setPassword}/>
         <CustomButton 
-          onPress={loginPressed} 
-          text="Login" 
+          onPress={signInPressed} 
+          text="Sign In" 
           type="PRIMARY" 
         />
         <CustomButton
@@ -52,12 +50,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     marginTop: "20%",
-  },
-  logo: {
-    width: "70%",
-    maxWidth: 250,
-    height: 150,
-    alignItems: "center",
-    marginBottom: 20,
   },
 });

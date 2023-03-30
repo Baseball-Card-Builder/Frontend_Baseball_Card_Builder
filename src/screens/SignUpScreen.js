@@ -21,11 +21,6 @@ const SignUpScreen = ({ navigation }) => {
       <View style={styles.root}>
         <Text>Create Account</Text>
 
-        <CustomInput
-          placeholder="Username"
-          value={username}
-          setValue={setUsername}
-        />
         <CustomInput 
           placeholder="Email" 
           value={email} 
@@ -38,7 +33,7 @@ const SignUpScreen = ({ navigation }) => {
           secureTextEntry
         />
          <CustomInput
-          placeholder="Repeat password"
+          placeholder="Confirm password"
           value={passwordAgain}
           setValue={setPasswordAgain}
           secureTextEntry
