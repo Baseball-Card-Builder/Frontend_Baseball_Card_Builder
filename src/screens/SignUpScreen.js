@@ -11,8 +11,9 @@ const SignUpScreen = ({ navigation }) => {
 
   const postSignUp = () => {
     try {
-      if (!setPassword === setConfirmPassword) {
-        return Alert.alert("Passwords do not match")
+      if (password !== confirmPassword) {
+        Alert.alert("Passwords do not match")
+        return;
       }
       axios.post("http://localhost:8080/user/signup", { email, password });
     } catch (error) {
