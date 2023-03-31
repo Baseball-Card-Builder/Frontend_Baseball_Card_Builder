@@ -3,30 +3,39 @@ import { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
+  const [validEmail, setValidEmail] = useState(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const postSignUp = () => {
+  const isAllInputValid = validEmail && (password === confirmPassword);
+
+  const handleEmailChange = (value) => {
+    setEmail(value);
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    setValidEmail(emailRegex.test(value));
+  };
+
+  const storeAccount = () => {
     try {
-      if (password !== confirmPassword) {
-        Alert.alert("Passwords do not match")
+      if (!validEmail || (password !== confirmPassword)) {
+        Alert.alert("Please enter a valid email and/or password");
         return;
       }
       axios.post("http://localhost:8080/user/signup", { email, password });
     } catch (error) {
       console.error(error);
     }
+    navigation.navigate("signIn");
   };
 
   const onRegisterPressed = () => {
-    postSignUp();
-    if (postSignUp) {
-      navigation.navigate("signIn");
+    storeAccount();
     }
-  };
+  
   const onSignInPressed = () => {
     navigation.navigate("signIn");
   };
@@ -35,7 +44,13 @@ const SignUpScreen = ({ navigation }) => {
     <View style={styles.root}>
       <Text>Create Account</Text>
 
-      <CustomInput placeholder="Email" value={email} setValue={setEmail} />
+      <CustomInput
+        placeholder="Email"
+        value={email}
+        setValue={handleEmailChange}
+        autoCapitalize="none"
+      />
+      {!validEmail && <Text>Please enter a valid email address</Text>}
       <CustomInput
         placeholder="Password"
         value={password}
@@ -48,7 +63,11 @@ const SignUpScreen = ({ navigation }) => {
         setValue={setConfirmPassword}
         secureTextEntry
       />
-      <CustomButton text="Register" onPress={onRegisterPressed} />
+      <CustomButton
+        text="Register"
+        disabled={!storeAccount}
+        onPress={onRegisterPressed}
+      />
       <CustomButton text="Have an account? Sign in" onPress={onSignInPressed} />
     </View>
   );
