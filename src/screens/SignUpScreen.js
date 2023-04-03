@@ -54,13 +54,13 @@ const SignUpScreen = ({ navigation }) => {
         placeholder="Password"
         value={password}
         setValue={setPassword}
-        secureTextEntry
+        secureTextEntry={true}
       />
       <CustomInput
         placeholder="Confirm password"
         value={confirmPassword}
         setValue={setConfirmPassword}
-        secureTextEntry
+        secureTextEntry={true}
       />
       <CustomButton
         text="Register"

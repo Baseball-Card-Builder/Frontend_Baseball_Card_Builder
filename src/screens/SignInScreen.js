@@ -11,8 +11,8 @@ const SignInScreen = ({ navigation }) => {
   const signInPressed = async () => {
     try {
       const response = await axios.post("http://localhost:8080/user/login", {
-        email: email,
-        password: password,
+        email,
+        password
       });
       if (response.status === 200) {
         const authToken = response.data.token;
@@ -46,6 +46,7 @@ const SignInScreen = ({ navigation }) => {
           placeholder="Password"
           value={password}
           setValue={setPassword}
+          secureTextEntry={true}
         />
         <CustomButton 
           onPress={signInPressed} 
