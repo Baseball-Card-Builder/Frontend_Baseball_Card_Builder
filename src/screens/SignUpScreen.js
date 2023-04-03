@@ -3,7 +3,6 @@ import { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
 import axios from "axios";
-import { useNavigation } from "@react-navigation/native";
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -21,7 +20,7 @@ const SignUpScreen = ({ navigation }) => {
 
   const storeAccount = () => {
     try {
-      if (!validEmail || (password !== confirmPassword)) {
+      if (!isAllInputValid) {
         Alert.alert("Please enter a valid email and/or password");
         return;
       }

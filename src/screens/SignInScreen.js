@@ -1,28 +1,52 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Alert, AsyncStorage } from "react-native";
 import { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
+import axios from "axios";
 
 const SignInScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signInPressed = () => {
-    console.log("Signed in!");
+  const signInPressed = async () => {
+    try {
+      const response = await axios.post("http://localhost:8080/user/login", {
+        email: email,
+        password: password,
+      });
+      if (response.status === 200) {
+        const authToken = response.data.token;
+        await  AsyncStorage.setItem('authToken', authToken);
+        navigation.navigate("LoggedInMain");
+      } else {
+        Alert.alert("Email or password does not exist.");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
+
   const forgotPasswordPressed = () => {
     console.log("Forgot Password Pressed!");
   };
   const signUpPressed = () => {
-    navigation.navigate("signUp")
+    navigation.navigate("signUp");
   };
 
   return (
     <ScrollView>
       <View style={styles.root}>
         <Text>BASEBALL CARD BUILDER</Text>
-        <CustomInput placeholder="Email" value={email} onChangeText={setEmail}/>
-        <CustomInput placeholder="Password" value={password} onChangeText={setPassword}/>
+        <CustomInput
+          placeholder="Email"
+          value={email.toLocaleLowerCase()}
+          setValue={setEmail}
+        />
+        <CustomInput
+          placeholder="Password"
+          value={password}
+          setValue={setPassword}
+        />
         <CustomButton 
           onPress={signInPressed} 
           text="Sign In" 
@@ -33,10 +57,10 @@ const SignInScreen = ({ navigation }) => {
           text="Forgot Password?"
           type="SECONDARY"
         />
-          <CustomButton 
+        <CustomButton 
           onPress={signUpPressed} 
           text="Sign up" 
-          type="TERTIARY"
+          type="TERTIARY" 
         />
       </View>
     </ScrollView>
