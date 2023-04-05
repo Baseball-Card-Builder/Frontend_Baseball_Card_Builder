@@ -1,6 +1,7 @@
 import { Alert, View, Text, StyleSheet, secureTextEntry } from "react-native";
 import { useState } from "react";
 import CustomInput from "../components/CustomInput";
+import PasswordInput from "../components/PasswordInput";
 import CustomButton from "../components/CustomButton";
 import axios from "axios";
 
@@ -49,13 +50,13 @@ const SignUpScreen = ({ navigation }) => {
         setValue={handleEmailChange}
       />
       {!validEmail && <Text>Please enter a valid email address</Text>}
-      <CustomInput
+      <PasswordInput
         placeholder="Password"
         value={password}
         setValue={setPassword}
         secureTextEntry={true}
       />
-      <CustomInput
+      <PasswordInput
         placeholder="Confirm password"
         value={confirmPassword}
         setValue={setConfirmPassword}

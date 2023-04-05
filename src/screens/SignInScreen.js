@@ -10,6 +10,10 @@ const SignInScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const showAlert = () => {
+    return Alert.alert("Uh-oh", "Email or password does not exist.");
+  }
+
   const signInPressed = async () => {
     try {
       const response = await axios.post("http://localhost:8080/user/login", {
@@ -21,7 +25,7 @@ const SignInScreen = ({ navigation }) => {
         await  AsyncStorage.setItem('authToken', authToken);
         navigation.navigate("LoggedInMain");
       } else {
-        Alert.alert("Email or password does not exist.");
+        showAlert();
       }
     } catch (error) {
       console.error(error);
