@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet, ScrollView, Alert, AsyncStorage } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Alert } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
@@ -46,7 +47,7 @@ const SignInScreen = ({ navigation }) => {
           placeholder="Password"
           value={password}
           setValue={setPassword}
-          secureTextEntry={true}
+         // secureTextEntry={true}
         />
         <CustomButton 
           onPress={signInPressed} 

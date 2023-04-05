@@ -1,4 +1,4 @@
-import { Alert, View, Text, StyleSheet } from "react-native";
+import { Alert, View, Text, StyleSheet, secureTextEntry } from "react-native";
 import { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
@@ -45,9 +45,8 @@ const SignUpScreen = ({ navigation }) => {
 
       <CustomInput
         placeholder="Email"
-        value={email}
+        value={email.toLocaleLowerCase()}
         setValue={handleEmailChange}
-        autoCapitalize="none"
       />
       {!validEmail && <Text>Please enter a valid email address</Text>}
       <CustomInput

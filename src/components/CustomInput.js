@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet, secureTextEntry } from "react-native";
+import { View, TextInput, StyleSheet } from "react-native";
 
 const CustomInput = ({ value, setValue, placeholder }) => {
   return (
@@ -8,7 +8,6 @@ const CustomInput = ({ value, setValue, placeholder }) => {
         onChangeText={setValue}
         placeholder={placeholder}
         style={styles.textInput}
-        secureTextEntry={true}
       />
     </View>
   );
