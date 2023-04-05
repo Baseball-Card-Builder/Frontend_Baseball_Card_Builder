@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, ScrollView, Alert } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState } from "react";
 import CustomInput from "../components/CustomInput";
+import PasswordInput from "../components/PasswordInput";
 import CustomButton from "../components/CustomButton";
 import axios from "axios";
 
@@ -43,11 +44,11 @@ const SignInScreen = ({ navigation }) => {
           value={email.toLocaleLowerCase()}
           setValue={setEmail}
         />
-        <CustomInput
+        <PasswordInput
           placeholder="Password"
           value={password}
           setValue={setPassword}
-         // secureTextEntry={true}
+          secureTextEntry={true}
         />
         <CustomButton 
           onPress={signInPressed} 
