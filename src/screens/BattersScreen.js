@@ -1,9 +1,20 @@
-import { Text } from "react-native";
 import BaseballCard from "../components/BaseballCard";
+import { ScrollView } from "react-native";
 
 const BattersScreen = () => {
     return (
-        <Text>Hello</Text>
+        <>
+        <ScrollView>
+        <BaseballCard/>
+        <BaseballCard/>
+        <BaseballCard/>
+        <BaseballCard/>
+        <BaseballCard/>
+        <BaseballCard/>
+        <BaseballCard/>
+        <BaseballCard/>
+        </ScrollView>
+        </>
     )
 }
 
