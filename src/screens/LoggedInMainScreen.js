@@ -1,19 +1,22 @@
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import CustomButton from "../components/CustomButton";
 
 const LoggedInMainScreen = ({ navigation }) => {
-    const allCardsButtonHandler = () => {
-        navigation.navigate("AllCardsScreen");
-    }
+  const battersButtonHandler = () => {
+    navigation.navigate("battersScreen");
+  };
+  const pitchersButtonHandler = () => {
+    navigation.navigate("pitchersScreen");
+  };
 
-    return (
-        <CustomButton 
-        onPress={allCardsButtonHandler} 
-        text="All Cards" 
-      />
-    )
-}
+  return (
+    <>
+      <CustomButton onPress={battersButtonHandler} text="Batters" />
+      <CustomButton onPress={pitchersButtonHandler} text="Pitchers" />
+    </>
+  );
+};
 
 export default LoggedInMainScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

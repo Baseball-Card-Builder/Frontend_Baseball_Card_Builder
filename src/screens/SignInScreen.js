@@ -23,7 +23,7 @@ const SignInScreen = ({ navigation }) => {
       if (response.status === 200) {
         const authToken = response.data.token;
         await  AsyncStorage.setItem('authToken', authToken);
-        navigation.navigate("LoggedInMain");
+        navigation.navigate("loggedInMain");
       } else {
         showAlert();
       }

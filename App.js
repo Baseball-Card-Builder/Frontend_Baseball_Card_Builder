@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SignInScreen from "./src/screens/SignInScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
 import LoggedInMainScreen from "./src/screens/LoggedInMainScreen";
+import BattersScreen from "./src/screens/BattersScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,8 @@ export default function App() {
         <Stack.Navigator initialRouteName="signIn">
           <Stack.Screen name="signIn" component={ SignInScreen }/>
           <Stack.Screen name="signUp" component={ SignUpScreen }/>
-          <Stack.Screen name="LoggedInMain" component={ LoggedInMainScreen }/> 
+          <Stack.Screen name="loggedInMain" component={ LoggedInMainScreen }/> 
+          <Stack.Screen name="battersScreen" component={ BattersScreen }/> 
         </Stack.Navigator>
         </NavigationContainer>
     </>
